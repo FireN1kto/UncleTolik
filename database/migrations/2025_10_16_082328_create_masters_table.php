@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('patronymic');
             $table->text('biography');
+            $table->foreignId('records_id')->constrained('records')->onDelete('cascade');
+            $table->foreignId('work_id')->constrained('works')->onDelete('cascade');
             $table->timestamps();
         });
     }
