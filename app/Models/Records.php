@@ -20,7 +20,7 @@ class Records extends Model
     ];
 
     protected $casts = [
-        'date_time' => 'datetime:Y-m-d-H:i',
+        'date_time' => 'datetime',
     ];
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
@@ -30,5 +30,9 @@ class Records extends Model
     }
     public function status(){
         return $this->belongsTo(Status::class, 'status_id');
+    }
+    public function master()
+    {
+        return $this->hasOne(Masters::class, 'records_id');
     }
 }

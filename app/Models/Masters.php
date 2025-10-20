@@ -17,9 +17,9 @@ class Masters extends Model
     ];
 
     public function records(){
-        return $this->hasMany(Records::class, 'records_id');
+        return $this->belongsTo(Records::class, 'records_id');
     }
     public function works(){
-        return $this->hasMany(Works::class, 'works_id');
+        return $this->belongsTo(Works::class, 'works_id');
     }
 }

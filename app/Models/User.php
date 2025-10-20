@@ -51,6 +51,15 @@ class User extends Authenticatable
     public function role(){
         return $this->belongsTo(Role::class, 'role_id');
     }
+    public function records()
+    {
+        return $this->hasMany(Records::class, 'user_id');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Reviews::class, 'user_id');
+    }
     public function isAdmin(): bool
     {
         return $this->role?->name === 'admin';
