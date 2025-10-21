@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/pagesCss/style.css') }}">
+    @livewireStyles
     <link rel="icon" href="{{ asset('img/Favikonka.png') }}">
     <title>UncleTolik</title>
     @yield('styles')
@@ -42,5 +43,7 @@
     </div>
 </footer>
 @yield('styles')
+@livewireScripts
+<script defer src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>

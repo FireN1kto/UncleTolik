@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('surname');
             $table->string('name');
-            $table->string('patronymic');
+            $table->string('patronymic')->nullable();
             $table->text('biography');
-            $table->foreignId('records_id')->constrained('records')->onDelete('cascade');
-            $table->foreignId('works_id')->constrained('works')->onDelete('cascade');
+            $table->foreignId('records_id')->constrained('records')->onDelete('cascade')->nullable();
+            $table->foreignId('works_id')->constrained('works')->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }

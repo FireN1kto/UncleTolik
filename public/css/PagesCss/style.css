@@ -89,3 +89,211 @@ main > div > h1 {
     background-color: transparent;
     border: none;
 }
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup {
+    width: 50%;
+    height: 900px;
+    background: #2D283E;
+    border-radius: 12%;
+    position: relative;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.popup > button {
+    display: flex;
+    justify-content: center;
+    color: #D1D7E0;
+    font-size: 60pt;
+    font-family: "Roboto-Bold", sans-serif;
+    font-style: italic;
+    padding-top: 5%;
+    margin-left: 30%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.popup > form {
+    display: flex;
+    flex-direction: column;
+    width: 74%;
+    padding-left: 12%;
+}
+
+.popup > form > legend {
+    color: #8340A9;
+    font-size: 42pt;
+    font-family: "Roboto-Bold", sans-serif;
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+form > div:not(.Control, .DateTime) {
+    background-color: #4C495D;
+    margin-bottom: 6%;
+    padding-left: 4%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 60px;
+}
+
+form > div > label {
+    color: #D1D7E0;
+    font-size: 24pt;
+    font-family: "Roboto-Regular", sans-serif;
+}
+
+.Servisec > select {
+    width: 65%;
+    border: none;
+    font-size: 18pt;
+    color: #B27AFC;
+    font-family: "Roboto-Regular", sans-serif;
+    appearance: none;
+    background: url(/img/more.png) no-repeat right center;
+    background-color: #4C495D;
+}
+
+form > div > input:not(.Control > input, .Number > input, .DateTime > input) {
+    width: 62%;
+    background-color: #4C495D;
+    border: none;
+}
+
+.PersonalData > input[placeholder="Иванов Иван Иванович"] {
+    color: #B27AFC;
+    font-size: 18pt;
+    font-family: "Roboto-Regular", sans-serif;
+}
+
+.PersonalData > input::placeholder {
+    color: #B27AFC;
+    opacity: 70%;
+}
+
+.Servisec > select > option {
+    color: #B27AFC;
+    font-size: 18pt;
+    font-family: "Roboto-Regular", sans-serif;
+}
+
+.Number > input[placeholder="+7-800-555-35-35"] {
+    color: #B27AFC;
+    font-size: 18pt;
+    font-family: "Roboto-Regular", sans-serif;
+}
+
+.Number > input::placeholder {
+    color: #B27AFC;
+    opacity: 70%;
+}
+
+.Number > input {
+    width: 55%;
+    background-color: #4C495D;
+    border: none;
+}
+
+/* Стили для объединенного поля даты и времени */
+.DateTime {
+    background-color: #4C495D;
+    margin-bottom: 6%;
+    padding: 1%;
+    border-radius: 60px;
+    width: 100%;
+}
+
+.DateTime > label {
+    color: #D1D7E0;
+    font-size: 24pt;
+    font-family: "Roboto-Regular", sans-serif;
+    padding-left: 2%;
+}
+
+.DateTime > input {
+    font-size: 17pt;
+    color: #B27AFC;
+    background-color: #4C495D;
+    border: none;
+    width: 50%;
+    padding-left: 10%;
+}
+
+.DateTime > input::-webkit-calendar-picker-indicator {
+    color: transparent;
+    opacity: 1;
+    background: url(/img/kalendar.png) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+    margin-right: 5%;
+}
+
+.Control {
+    display: flex;
+    gap: 300px;
+}
+
+.Reset {
+    background-color: #4C495D;
+    margin-bottom: 6%;
+    padding: 1% 4%;
+    border-radius: 60px;
+    width: 20%;
+    text-align: center;
+    transition: box-shadow 0.1s ease-in-out;
+}
+
+.Reset > input[value="Сбросить"] {
+    color: #D1D7E0;
+    font-size: 24pt;
+    font-family: "Roboto-Regular", sans-serif;
+    background-color: #4C495D;
+    border: none;
+}
+
+.Send {
+    background-color: #4C495D;
+    margin-bottom: 6%;
+    padding: 1% 4%;
+    border-radius: 60px;
+    width: 22%;
+    text-align: center;
+    transition: box-shadow 0.1s ease-in-out;
+}
+
+.Send > input[value="Отправить"] {
+    color: #D1D7E0;
+    font-size: 24pt;
+    font-family: "Roboto-Regular", sans-serif;
+    background-color: #4C495D;
+    border: none;
+}
+
+.Reset > input:hover {
+    color: #B27AFC;
+}
+
+.Reset:active {
+    box-shadow: 10px 5px 10px 0 #9747FF;
+}
+
+.Send > input:hover {
+    color: #B27AFC;
+}
+
+.Send:active {
+    box-shadow: 10px 5px 10px 0 #9747FF;
+}

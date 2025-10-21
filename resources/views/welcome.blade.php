@@ -17,11 +17,7 @@
                     </p>
                 </div>
             </div>
-            <div class="sign_up">
-                <div>
-                    <button class="openOverlay">Оформить запись</button>
-                </div>
-            </div>
+            <livewire:recording-form />
         </div>
     </div>
 @endsection

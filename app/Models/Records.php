@@ -19,6 +19,10 @@ class Records extends Model
         'status_id',
     ];
 
+    protected $attributes = [
+        'status_id' => 1
+    ];
+
     protected $casts = [
         'date_time' => 'datetime',
     ];
