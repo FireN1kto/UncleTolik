@@ -102,7 +102,7 @@ main > div > h1 {
 
 .popup {
     width: 50%;
-    height: 900px;
+    height: 950px;
     background: #2D283E;
     border-radius: 12%;
     position: relative;
@@ -129,7 +129,7 @@ main > div > h1 {
 .popup > form {
     display: flex;
     flex-direction: column;
-    width: 74%;
+    width: 80%;
     padding-left: 12%;
 }
 
@@ -141,7 +141,7 @@ main > div > h1 {
     margin-bottom: 38px;
 }
 
-form > div:not(.Control, .DateTime) {
+form > div:not(.Control, .DateTime,.Registr, .password-for-reg,.login-for-reg) {
     background-color: #4C495D;
     margin-bottom: 6%;
     padding-left: 4%;
@@ -169,8 +169,9 @@ form > div > label {
 
 form > div > input:not(.Control > input, .Number > input, .DateTime > input) {
     width: 62%;
-    background-color: #4C495D;
     border: none;
+    color: #B27AFC;
+    background-color: #4C495D;
 }
 
 .PersonalData > input[placeholder="Иванов Иван Иванович"] {
@@ -296,4 +297,96 @@ form > div > input:not(.Control > input, .Number > input, .DateTime > input) {
 
 .Send:active {
     box-shadow: 10px 5px 10px 0 #9747FF;
+}
+
+.login {
+    background-color: #4C495D;
+    margin-bottom: 6%;
+    border-radius: 60px;
+    text-align: center;
+    transition: box-shadow 0.1s ease-in-out;
+}
+
+.login > input[value="Вход"] {
+    color: #D1D7E0;
+    font-size: 24pt;
+    font-family: "Roboto-Regular", sans-serif;
+    background-color: #4C495D;
+    border: none;
+}
+
+.Registr {
+    font-size: 24pt;
+    align-self: center;
+}
+
+.Registr > a {
+    color: #9747FF;
+    text-decoration: none;
+}
+
+.Registr > a:active {
+    text-decoration: underline;
+}
+
+.registr-form > input[value="Зарегистрироваться"] {
+    color: #D1D7E0;
+    font-size: 24pt;
+    font-family: "Roboto-Regular", sans-serif;
+    background-color: #4C495D;
+    border: none;
+}
+
+.login-for-reg {
+    display: flex;
+    gap: 2%;
+}
+
+.login-for-reg > div {
+    background-color: #4C495D;
+    margin-bottom: 6%;
+    padding-left: 4%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 60px;
+    width: 60%;
+}
+
+.login-for-reg > div > label {
+    color: #D1D7E0;
+    font-size: 20pt;
+    font-family: "Roboto-Regular", sans-serif;
+}
+
+.login-for-reg > div > input {
+    width: 50%;
+    background-color: #4C495D;
+    border: none;
+}
+
+.password-for-reg {
+    display: flex;
+    gap: 2%;
+}
+
+.password-for-reg > div {
+    background-color: #4C495D;
+    margin-bottom: 6%;
+    padding-left: 4%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 60px;
+    width: 60%;
+}
+
+.password-for-reg > div > label {
+    color: #D1D7E0;
+    font-size: 20pt;
+    font-family: "Roboto-Regular", sans-serif;
+}
+
+.password-for-reg > div > input {
+    width: 50%;
+    background-color: #4C495D;
+    border: none;
 }

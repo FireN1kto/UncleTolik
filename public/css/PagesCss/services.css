@@ -1,0 +1,71 @@
+@import url('../font.css');
+@import url('../header-footer-services.css');
+
+.Main {
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+    justify-content: space-evenly;
+}
+
+.Main > div:nth-of-type(1) {
+    background: url(/img/shaving.png);
+    background-size: cover;
+    width: 31%;
+    height: 900px;
+    border-radius: 30px;
+    transition: box-shadow 1s ease-in-out;
+}
+
+.Main > div:nth-of-type(2) {
+    background: url(/img/haircuts.png);
+    background-size: cover;
+    width: 31%;
+    height: 900px;
+    border-radius: 30px;
+    transition: box-shadow 1s ease-in-out;
+}
+
+.Main > div:nth-of-type(3) {
+    background: url(/img/facial_treatment.png);
+    background-size: cover;
+    width: 31%;
+    height: 900px;
+    border-radius: 30px;
+    transition: box-shadow 1s ease-in-out;
+}
+
+.Main > div > a {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color:#D1D7E0;
+    font-size: 48pt;
+    font-family: "Roboto-Bold", sans-serif;
+    padding-top: 50%;
+    transition: color 0.5s ease;
+}
+
+.Main > div:nth-of-type(1):hover {
+    width: 40%;
+    box-shadow: inset 10px 10px 100px 10px #802BB1;
+}
+
+.Main > div:nth-of-type(2):hover {
+    width: 40%;
+    box-shadow: inset 10px 10px 100px 10px #802BB1;
+}
+
+.Main > div:nth-of-type(3):hover {
+    width: 40%;
+    box-shadow: inset 10px 10px 100px 10px #802BB1;
+}
+
+
+.Main > div > a:hover {
+    color: #b27afc;
+}
+
+.Main > div > a:active {
+    text-decoration: underline;
+}

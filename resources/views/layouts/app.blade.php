@@ -10,17 +10,33 @@
     @yield('styles')
 </head>
 <body>
-<header>
-    <div class="Header wrapper">
-        <div class="FirsteLine1">
-            <a href="#">Наши мастера</a>
-            <a href="#">Услуги в Tolik-е</a>
-            <a href="#">Работы мсатеров</a>
-            <a href="#">Отзывы о нас</a>
-            <a href="#" class="openAuth"><img draggable="false" src="{{ asset('img/auth.png') }}" alt="auth"></a>
+@if(Request::is('/'))
+    <!-- Хедер для главной страницы -->
+    <header class="main-header">
+        <div class="Header wrapper">
+            <div class="FirsteLine1">
+                <a href="#">Наши мастера</a>
+                <a href="{{ route('services') }}">Услуги в Tolik-е</a>
+                <a href="#">Работы мастеров</a>
+                <a href="#">Отзывы о нас</a>
+                <livewire:auth-modal />
+            </div>
         </div>
-    </div>
-</header>
+    </header>
+@else
+    <header class="internal-header">
+        <div class="Header internal">
+            <a href="{{ route('welcome') }}" class="logo">UT</a>
+            <div class="nav-links">
+                <a href="#">Наши мастера</a>
+                <a href="{{ route('services') }}">Услуги в Tolik-е</a>
+                <a href="#">Работы мастеров</a>
+                <a href="#">Отзывы о нас</a>
+                <livewire:auth-modal />
+            </div>
+        </div>
+    </header>
+@endif
 <main>
     @yield('content')
 </main>
