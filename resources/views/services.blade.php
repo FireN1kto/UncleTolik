@@ -8,9 +8,17 @@
     <div class="Main">
         @foreach($types as $type)
             <div class="Block{{ $loop->iteration }}">
-                <a href="#">
-                    {{ $type->name }}
-                </a>
+                @if($type->name == 'Бритьё')
+                    <a href="#" class="shaving">
+                        @elseif($type->name == 'Стрижки')
+                            <a href="{{ route('services.haircuts') }}" class="haircuts">
+                                @elseif($type->name == 'Уход за лицом')
+                                    <a href="#" class="facialTreatment">
+                                        @else
+                                            <a href="#" class="coming-soon">
+                                                @endif
+                                                {{ $type->name }}
+                                            </a>
             </div>
         @endforeach
 

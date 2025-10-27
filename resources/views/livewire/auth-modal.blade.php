@@ -6,91 +6,80 @@
             <button wire:click="logout" class="logout-btn">Выйти</button>
         </div>
     @else
-        <a href="#" class="openAuth" wire:click.prevent="openModal">
+        <a href="#" class="openAuth" wire:click="$set('show', true)">
             <img draggable="false" src="{{ asset('img/auth.png') }}" alt="auth">
         </a>
     @endauth
 
     <!-- Модальное окно аутентификации -->
-    @if($isOpen)
-        <div class="overlay" wire:click="closeModal">
-            <div class="popup" wire:click.stop>
-                <button class="closePopup" wire:click="closeModal">UncleTolik</button>
+    @if($show)
+        <div class="overlay">
+            <div class="popup">
+                <button class="closePopup" wire:click="$set('show', false)">UncleTolik</button>
 
-                @if($isLogin)
+                @if($activeTab === 'login')
                     <!-- Форма входа -->
-                    <form wire:submit.prevent="login">
+                    <form wire:submit="login">
                         @csrf
                         <legend>Авторизация</legend>
 
                         <div class="auth-login">
-                            <label for="auth-login">Ваш login:</label>
-                            <input type="text" id="login" wire:model="login" required>
-                            @error('login') <span class="error-text">{{ $message }}</span> @enderror
+                            <label for="login_email">Ваш email</label>
+                            <input id="login_email" name="login_email" type="email" wire:model="login_email">
+                            @error('login_email') <span class="error">{{ $message }}</span> @enderror
                         </div>
 
                         <div class="password">
-                            <label for="password">Ваш пароль:</label>
-                            <input type="password" id="password" wire:model="password" required>
-                            @error('password') <span class="error-text">{{ $message }}</span> @enderror
+                            <label for="login_password">Ваш пароль:</label>
+                            <input type="password" name="login_password" id="login_password" wire:model="login_password">
+                            @error('login_password') <span class="error-text">{{ $message }}</span> @enderror
                         </div>
 
                         <div class="login">
-                            <input type="submit" value="Вход">
+                            <input type="submit" value="Войти">
                         </div>
 
                         <div class="Registr">
-                            <a href="#" wire:click.prevent="switchToRegister">Регистрация</a>
+                            <a href="#" wire:click="switchTab('register')">Регистрация</a>
                         </div>
                     </form>
-                @else
+                @endif
+                @if($activeTab === 'register')
                     <!-- Форма регистрации -->
-                    <form wire:submit.prevent="register">
+                    <form wire:submit="register">
                         @csrf
                         <legend>Регистрация</legend>
 
-                        <div class="auth-login">
-                            <label for="reg_surname">Фамилия:</label>
-                            <input type="text" id="reg_surname" wire:model="reg_surname" required>
-                            @error('reg_surname') <span class="error-text">{{ $message }}</span> @enderror
-                        </div>
-
-                        <div class="auth-login">
-                            <label for="reg_name">Имя:</label>
-                            <input type="text" id="reg_name" wire:model="reg_name" required>
-                            @error('reg_name') <span class="error-text">{{ $message }}</span> @enderror
-                        </div>
-
-                        <div class="auth-login">
-                            <label for="reg_patronymic">Отчество:</label>
-                            <input type="text" id="reg_patronymic" wire:model="reg_patronymic" required>
-                            @error('reg_patronymic') <span class="error-text">{{ $message }}</span> @enderror
+                        <div class="auth-fio">
+                            <label for="FIO"></label>
+                            <input id="FIO" name="FIO" type="text" placeholder="ФИО" wire:model="FIO">
+                            @error('FIO') <span class="error">{{ $message }}</span> @enderror
                         </div>
 
                         <div class="login-for-reg">
                             <div class="auth-login-reg">
-                                <label for="reg_email">Email:</label>
-                                <input type="email" id="reg_email" wire:model="reg_email" required>
-                                @error('reg_email') <span class="error-text">{{ $message }}</span> @enderror
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" wire:model="email">
+                                @error('email') <span class="error-text">{{ $message }}</span> @enderror
                             </div>
 
                             <div class="auth-login-reg">
-                                <label for="reg_login">Логин:</label>
-                                <input type="text" id="reg_login" wire:model="reg_login" required>
-                                @error('reg_login') <span class="error-text">{{ $message }}</span> @enderror
+                                <label for="login">Логин:</label>
+                                <input type="text" id="login" wire:model="login">
+                                @error('login') <span class="error-text">{{ $message }}</span> @enderror
                             </div>
                         </div>
 
                         <div class="password-for-reg">
                             <div class="password-reg">
-                                <label for="reg_password">Пароль:</label>
-                                <input type="password" id="reg_password" wire:model="reg_password" required>
-                                @error('reg_password') <span class="error-text">{{ $message }}</span> @enderror
+                                <label for="password">Пароль:</label>
+                                <input type="password" id="password" wire:model="password">
+                                @error('password') <span class="error-text">{{ $message }}</span> @enderror
                             </div>
 
                             <div class="password-reg">
-                                <label class="password-confirmation" for="reg_password_confirmation">Подтвердите пароль:</label>
-                                <input type="password" id="reg_password_confirmation" wire:model="reg_password_confirmation" required>
+                                <label class="password-confirmation" for="password_confirmation">Подтвердите пароль:</label>
+                                <input type="password" id="password_confirmation" wire:model="password_confirmation">
                             </div>
 
                         </div>

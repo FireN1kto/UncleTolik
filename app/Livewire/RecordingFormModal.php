@@ -7,7 +7,7 @@ use App\Models\Services;
 use App\Models\Masters;
 use App\Models\Records;
 
-class RecordingForm extends Component
+class RecordingFormModal extends Component
 {
     public $isOpen = false;
     public $services;
@@ -86,6 +86,6 @@ class RecordingForm extends Component
 
     public function render()
     {
-        return view('livewire.recording-form');
+        return view('livewire.recording-form-modal');
     }
 }
