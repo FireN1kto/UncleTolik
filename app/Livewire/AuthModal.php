@@ -26,86 +26,27 @@ class AuthModal extends Component
 
     public function login()
     {
-        Log::info('LOGIN_ATTEMPT: Starting login process', [
-            'email' => $this->login_email,
-            'ip' => request()->ip(),
-            'user_agent' => substr(request()->userAgent(), 0, 100)
+        $this->validate([
+            'login_email' => 'required',
+            'login_password' => 'required',
+        ], [
+            'login_email.regex' => 'Телефон должен быть в формате +7XXXXXXXXXX',
         ]);
 
-        try {
-            $this->validate([
-                'login_email' => 'required|email',
-                'login_password' => 'required|min:1',
-            ]);
+        $user = User::where('email', $this->login_email)->first();
 
-            Log::debug('LOGIN_VALIDATION: Validation passed', [
-                'email' => $this->login_email
-            ]);
-
-            $user = User::where('email', $this->login_email)->first();
-
-            if (!$user) {
-                Log::warning('LOGIN_FAILED: User not found', [
-                    'email' => $this->login_email,
-                    'ip' => request()->ip()
-                ]);
-
-                throw ValidationException::withMessages([
-                    'login_email' => 'Неверный email или пароль',
-                ]);
-            }
-
-            Log::debug('LOGIN_USER_FOUND: User exists in database', [
-                'user_id' => $user->id,
-                'email' => $user->email,
-                'has_password' => !empty($user->password)
-            ]);
-
-            // Проверяем пароль
-            if (!Hash::check($this->login_password, $user->password)) {
-                Log::warning('LOGIN_FAILED: Password mismatch', [
-                    'user_id' => $user->id,
-                    'email' => $user->email,
-                    'ip' => request()->ip()
-                ]);
-
-                throw ValidationException::withMessages([
-                    'login_email' => 'Неверный email или пароль',
-                ]);
-            }
-
+        if ($user && $user->password && $user->password) {
             // Авторизуем пользователя
             Auth::login($user);
 
-            Log::info('LOGIN_SUCCESS: User authenticated successfully', [
-                'user_id' => $user->id,
-                'email' => $user->email,
-                'ip' => request()->ip()
-            ]);
-
             $this->show = false;
             $this->resetForm();
-
-            session()->flash('auth_message', 'Вы успешно вошли в систему!');
-            return redirect('/');
-
-        } catch (ValidationException $e) {
-            Log::warning('LOGIN_VALIDATION_ERROR: Validation failed', [
-                'errors' => $e->errors(),
-                'email' => $this->login_email
-            ]);
-            throw $e;
-        } catch (\Exception $e) {
-            Log::error('LOGIN_ERROR: Unexpected error during login', [
-                'error' => $e->getMessage(),
-                'email' => $this->login_email,
-                'trace' => $e->getTraceAsString()
-            ]);
-
-            throw ValidationException::withMessages([
-                'login_email' => 'Произошла ошибка при входе. Попробуйте позже.',
-            ]);
+            return redirect()->intended('welcome');
         }
+
+        throw ValidationException::withMessages([
+            'login_email' => 'Неверный email или пароль',
+        ]);
     }
 
     public function logout()
