@@ -307,12 +307,13 @@ form > div > input:not(.Control > input, .Number > input, .DateTime > input) {
     transition: box-shadow 0.1s ease-in-out;
 }
 
-.login > input[value="Вход"] {
+.login > input[value="Войти"] {
     color: #D1D7E0;
     font-size: 24pt;
     font-family: "Roboto-Regular", sans-serif;
     background-color: #4C495D;
     border: none;
+    cursor: pointer;
 }
 
 .Registr {
@@ -389,4 +390,133 @@ form > div > input:not(.Control > input, .Number > input, .DateTime > input) {
     width: 50%;
     background-color: #4C495D;
     border: none;
+}
+
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    min-width: 300px;
+    max-width: 400px;
+    background: #2D283E;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid;
+}
+
+.alert:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+.alert-success {
+    border-color: #4CAF50;
+}
+
+.alert-error {
+    border-color: #f44336;
+}
+
+.alert-warning {
+    border-color: #ff9800;
+}
+
+.alert-content {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    color: #D1D7E0;
+    font-family: "Roboto-Regular", sans-serif;
+}
+
+.alert-icon {
+    font-size: 20px;
+    margin-right: 12px;
+    font-weight: bold;
+}
+
+.alert-success .alert-icon {
+    color: #4CAF50;
+}
+
+.alert-error .alert-icon {
+    color: #f44336;
+}
+
+.alert-warning .alert-icon {
+    color: #ff9800;
+}
+
+.alert-message {
+    flex: 1;
+    font-size: 14pt;
+    line-height: 1.4;
+}
+
+.alert-close {
+    background: none;
+    border: none;
+    color: #D1D7E0;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 10px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.alert-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.alert-progress {
+    height: 3px;
+    background: linear-gradient(90deg, #802BB1, #4C495D);
+    animation: progress 5s linear forwards;
+}
+
+.alert-success .alert-progress {
+    background: linear-gradient(90deg, #4CAF50, #45a049);
+}
+
+.alert-error .alert-progress {
+    background: linear-gradient(90deg, #f44336, #d32f2f);
+}
+
+.alert-warning .alert-progress {
+    background: linear-gradient(90deg, #ff9800, #f57c00);
+}
+
+@keyframes progress {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0%;
+    }
+}
+
+/* Анимация появления и исчезновения */
+.alert {
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
