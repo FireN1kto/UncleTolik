@@ -17,9 +17,9 @@
             <div class="popup">
                 <button class="closePopup" wire:click="$set('show', false)">UncleTolik</button>
 
-                @if($activeTab === 'login')
+                @if($activeTab === 'submit')
                     <!-- Форма входа -->
-                    <form wire:submit="login">
+                    <form wire:submit="submit">
                         @csrf
                         <legend>Авторизация</legend>
 

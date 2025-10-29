@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace database;
 
+use App\Models\Records;
+use App\Models\Works;
 use Illuminate\Database\Eloquent\Model;
 
 class Masters extends Model
@@ -17,7 +19,7 @@ class Masters extends Model
     ];
 
     public function records(){
-        return $this->belongsTo(Records::class, 'records_id');
+        return $this->hasMany(Records::class, 'records_id');
     }
     public function works(){
         return $this->belongsTo(Works::class, 'works_id');

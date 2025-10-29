@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('surname');
             $table->string('name');
-            $table->string('patronymic')->nullable();
-            $table->string('phone', 20);
+            $table->string('patronymic');
+            $table->string('number', 20);
             $table->dateTime('date_time');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->nullable;
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('service_id')->constrained('services')->onDelete('cascade');
+            $table->foreignID('master_id')->constrained('masters')->onDelete('cascade');
             $table->foreignId('status_id')->constrained('status')->onDelete('cascade');
             $table->timestamps();
         });

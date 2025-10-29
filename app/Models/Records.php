@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
+use database\Masters;
 use Illuminate\Database\Eloquent\Model;
 
 class Records extends Model
 {
     protected $table = 'records';
-    public $timestamps = false;
     protected $fillable = [
         'surname',
         'name',
@@ -15,7 +15,8 @@ class Records extends Model
         'number',
         'date_time',
         'user_id',
-        'sevices_id',
+        'service_id',
+        'master_id',
         'status_id',
     ];
 
@@ -30,13 +31,13 @@ class Records extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
     public function services(){
-        return $this->belongsTo(Services::class, 'services_id');
+        return $this->belongsTo(Services::class, 'service_id');
     }
     public function status(){
         return $this->belongsTo(Status::class, 'status_id');
     }
     public function master()
     {
-        return $this->hasOne(Masters::class, 'records_id');
+        return $this->belongsTo(Masters::class, 'records_id');
     }
 }

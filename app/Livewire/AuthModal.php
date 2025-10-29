@@ -12,7 +12,7 @@ use App\Models\Role;
 class AuthModal extends Component
 {
     public $show = false;
-    public $activeTab = 'login';
+    public $activeTab = 'submit';
 
     // Поля для входа
     public $login_email = '';
@@ -24,7 +24,7 @@ class AuthModal extends Component
     public $email = '';
     public $password = '';
 
-    public function login()
+    public function submit()
     {
         $this->validate([
             'login_email' => 'required',
@@ -35,13 +35,13 @@ class AuthModal extends Component
 
         $user = User::where('email', $this->login_email)->first();
 
-        if ($user && $user->password && $user->password) {
+        if ($user && $user->password) {
             // Авторизуем пользователя
             Auth::login($user);
 
             $this->show = false;
             $this->resetForm();
-            return redirect()->intended('welcome');
+            return redirect()->intended('/');
         }
 
         throw ValidationException::withMessages([

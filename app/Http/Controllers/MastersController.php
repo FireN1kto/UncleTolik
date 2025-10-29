@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Masters;
+use database\Masters;
 
 class MastersController extends Controller {
     public function MastersList() {
