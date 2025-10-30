@@ -1,9 +1,7 @@
 <?php
 
-namespace database;
+namespace App\Models;
 
-use App\Models\Records;
-use App\Models\Works;
 use Illuminate\Database\Eloquent\Model;
 
 class Masters extends Model

@@ -1,0 +1,58 @@
+@import url('../font.css');
+@import url('../header-footer-profile.css');
+
+.edit-form {
+    max-width: 700px;
+    margin: 1% 30%;
+    background: rgba(40, 35, 55, 0.7);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #e0e0ff;
+    font-weight: 500;
+}
+.form-control {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #2a253a;
+    color: white;
+    font-size: 16px;
+}
+.avatar-preview {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 10px;
+    border: 2px solid #9c4dff;
+}
+.btn {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-right: 12px;
+}
+.btn-primary {
+    background: #9c4dff;
+    color: white;
+}
+.btn-secondary {
+    background: #555;
+    color: white;
+}
+.btn:hover {
+    opacity: 0.9;
+}

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use database\Masters;
 use Illuminate\Database\Eloquent\Model;
 
 class Records extends Model
@@ -30,7 +29,7 @@ class Records extends Model
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
     }
-    public function services(){
+    public function service(){
         return $this->belongsTo(Services::class, 'service_id');
     }
     public function status(){
@@ -38,6 +37,6 @@ class Records extends Model
     }
     public function master()
     {
-        return $this->belongsTo(Masters::class, 'records_id');
+        return $this->belongsTo(Masters::class, 'master_id');
     }
 }

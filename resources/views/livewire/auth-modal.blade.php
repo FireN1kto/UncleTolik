@@ -2,11 +2,33 @@
     <!-- Кнопка открытия модального окна -->
     @auth
         <div class="user-menu">
-            <span>Привет, {{ Auth::user()->name }}!</span>
-            <button wire:click="logout" class="logout-btn">Выйти</button>
+            <div class="profile-dropdown">
+                <button class="profile-btn">
+                    <img draggable="false" src="{{ asset('img/profile.png') }}" alt="profile">
+                </button>
+                <div class="dropdown-content">
+                    @if(Auth::user()->isMaster())
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-user-tie"></i>
+                            Профиль мастера
+                        </a>
+                    @else
+                        <a href="{{ route('profile.user') }}" class="dropdown-item">
+                            <i class="fas fa-user"></i>
+                            Мой профиль
+                        </a>
+                    @endif
+
+                    <div class="dropdown-divider"></div>
+                    <button wire:click="logout" class="dropdown-item logout-item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Выйти
+                    </button>
+                </div>
+            </div>
         </div>
     @else
-        <a href="#" class="openAuth" wire:click="$set('show', true)">
+        <a href="#" class="openAuth" wire:click.prevent="$set('show', true)">
             <img draggable="false" src="{{ asset('img/auth.png') }}" alt="auth">
         </a>
     @endauth
@@ -54,6 +76,7 @@
                             <label for="FIO"></label>
                             <input id="FIO" name="FIO" type="text" placeholder="ФИО" wire:model="FIO">
                             @error('FIO') <span class="error">{{ $message }}</span> @enderror
+                            <label for="tel"></label>
                         </div>
 
                         <div class="login-for-reg">

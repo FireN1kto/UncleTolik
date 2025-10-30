@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use database\Masters;
+use App\Models\Masters;
 
 class MastersController extends Controller {
     public function MastersList() {

@@ -24,6 +24,7 @@ class User extends Authenticatable
         'email',
         'login',
         'password',
+        'avatar',
         'role_id'
     ];
 
@@ -56,13 +57,22 @@ class User extends Authenticatable
     {
         return $this->hasMany(Records::class, 'user_id');
     }
-
     public function reviews()
     {
         return $this->hasMany(Reviews::class, 'user_id');
     }
-    public function isAdmin(): bool
+    public function isAdmin()
     {
-        return $this->role?->name === 'admin';
+        return $this->role && $this->role->name === 'admin';
+    }
+
+    public function isMaster()
+    {
+        return $this->role && $this->role->name === 'master';
+    }
+
+    public function isUser()
+    {
+        return $this->role && $this->role->name === 'user';
     }
 }
