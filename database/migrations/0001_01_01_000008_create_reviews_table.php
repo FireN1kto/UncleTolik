@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('description');
             $table->integer('rating');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('status_id')->constrained('status')->onDelete('cascade');
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }

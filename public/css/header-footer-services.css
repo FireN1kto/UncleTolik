@@ -22,7 +22,7 @@
     margin-right: 14%;
 }
 
-.Header > div > a:not(a:nth-of-type(2)) {
+.Header > div > a {
     text-decoration: none;
     color: #D1D7E0;
     margin-right: 4%;
@@ -34,22 +34,6 @@
     font-family: "Roboto-Regular", sans-serif;
     font-size: 17pt;
     transition: box-shadow 0.1s ease-in-out;
-}
-
-.Header > div > a:nth-of-type(2) {
-    text-decoration: none;
-    color: #B27AFC;
-    margin-left: 3%;
-    margin-right: 4%;
-    background-color: #4C495D;
-    width: 14%;
-    text-align: center;
-    padding: 1% 2%;
-    border-radius: 60px;
-    font-family: "Roboto-Regular", sans-serif;
-    font-size: 17pt;
-    box-shadow: 10px 5px 10px 0 #9747FF;
-    pointer-events: none;
 }
 
 .Header > div > a:not(a:nth-of-type(3)):hover {

@@ -8,17 +8,20 @@
 
 @section('content')
     <div class="profile-card">
-        <div class="profile-avatar">
-            @if($user->avatar)
-                <img src="{{ $user->avatar }}" alt="Аватар" class="avatar-preview">
-            @else
-                <img src="{{ asset('img/default_avatar.jpg') }}" class="avatar-preview">
-            @endif
-        </div>
-        <div class="profile-info">
-            <h2>{{ $user->surname }} {{ $user->name }} {{ $user->patronymic }}</h2>
-            <p>{{ $user->email }}</p>
-            <a href="{{ route('profile.edit') }}" class="edit-profile-btn">Редактировать профиль</a>
+        <div class="profile-card">
+            <div class="profile-avatar">
+                @if($user->avatar)
+                    <img src="{{ Storage::url($user->avatar) }}" alt="Аватар" class="avatar-preview">
+                @else
+                    <img src="{{ asset('img/default_avatar.jpg') }}" class="avatar-preview">
+                @endif
+            </div>
+            <div class="profile-info">
+                <h2>{{ $user->surname }}
+                    {{ $user->name }} {{ $user->patronymic }}</h2>
+                <p>{{ $user->email }}</p>
+                <a href="{{ route('profile.edit') }}" class="edit-profile-btn">Редактировать профиль</a>
+            </div>
         </div>
     </div>
 

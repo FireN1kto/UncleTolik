@@ -50,7 +50,7 @@ main {
 
 .service-info:hover {
     background-color: rgba(76, 73, 93, 0.3);
-    transform: translateX(10px);
+    transform: translateY(-10px);
 }
 
 .service-info > h3 {

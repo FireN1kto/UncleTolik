@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('number', 20);
             $table->dateTime('date_time');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('master_user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('service_id')->constrained('services')->onDelete('cascade');
-            $table->foreignID('master_id')->constrained('masters')->onDelete('cascade');
-            $table->foreignId('status_id')->constrained('status')->onDelete('cascade');
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }

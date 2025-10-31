@@ -8,10 +8,10 @@
 
 @section('content')
     <div class="masters-container">
-        @if($Masters->count() > 0)
+        @if($masters->count() > 0)
             <!-- Первая линия мастеров -->
             <div class="FiresteLine2">
-                @foreach($Masters->take(3) as $master)
+                @foreach($masters->take(3) as $master)
                     <div class="Master{{ $loop->iteration }} master-card">
                         <div class="Content">
                             <h3>{{ $master->surname }} {{ $master->name }} {{ $master->patronymic }}</h3>
@@ -27,7 +27,7 @@
             </div>
             <!-- Вторая линия мастеров -->
             <div class="SecondLine2">
-                @foreach($Masters->slice(3, 3) as $master)
+                @foreach($masters->slice(3, 3) as $master)
                     <div class="Master{{ $loop->iteration + 3 }} master-card">
                         <div class="Content">
                             <h3>{{ $master->surname }} {{ $master->name }} {{ $master->patronymic }}</h3>

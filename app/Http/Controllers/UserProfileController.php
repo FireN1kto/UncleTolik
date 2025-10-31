@@ -18,7 +18,7 @@ class UserProfileController extends Controller
 
         // Актуальные записи (будущие или сегодняшние)
         $upcomingRecords = $user->records()
-            ->with('service', 'master', 'status')
+            ->with('service', 'master')
             ->where('date_time', '>=', $now)
             ->orderBy('date_time', 'asc')
             ->get();
@@ -55,30 +55,8 @@ class UserProfileController extends Controller
         $data = $request->only(['surname', 'name', 'patronymic', 'email', 'number']);
 
         if ($request->hasFile('avatar')) {
-            $uploadPath = public_path('img/avatars');
-
-            // Создаём папку, если её нет
-            if (!File::exists($uploadPath)) {
-                File::makeDirectory($uploadPath, 0755, true);
-            }
-
-            // Генерируем уникальное имя файла
-            $extension = $request->file('avatar')->getClientOriginalExtension();
-            $fileName = uniqid() . '_' . time() . '.' . $extension;
-            $relativePath = 'img/avatars/' . $fileName;
-
-            // Перемещаем файл
-            $request->file('avatar')->move($uploadPath, $fileName);
-
-            // Удаляем старый аватар, если есть
-            if ($user->avatar) {
-                $oldPath = public_path($user->avatar);
-                if (File::exists($oldPath)) {
-                    File::delete($oldPath);
-                }
-            }
-
-            $data['avatar'] = $relativePath; // Сохраняем путь: "img/avatars/abc123.jpg"
+            $path = $request->file('avatar')->store('avatars', 'public');
+            $data['avatar'] = $path;
         }
 
         $user->update($data);

@@ -14,29 +14,30 @@ class Records extends Model
         'number',
         'date_time',
         'user_id',
+        'master_user_id',
         'service_id',
-        'master_id',
-        'status_id',
+        'is_active'
     ];
 
     protected $attributes = [
-        'status_id' => 1
+        'is_active' => false
     ];
 
     protected $casts = [
         'date_time' => 'datetime',
+        'is_active' => 'boolean',
     ];
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
     }
+
     public function service(){
         return $this->belongsTo(Services::class, 'service_id');
     }
-    public function status(){
-        return $this->belongsTo(Status::class, 'status_id');
-    }
+
     public function master()
     {
-        return $this->belongsTo(Masters::class, 'master_id');
+        return $this->belongsTo(User::class, 'master_user_id');
     }
+
 }

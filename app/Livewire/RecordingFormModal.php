@@ -4,7 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Services;
-use App\Models\Masters;
+use App\Models\User;
 use App\Models\Records;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
@@ -28,7 +28,9 @@ class RecordingFormModal extends Component
     public function mount()
     {
         $this->services = Services::with('type')->get();
-        $this->masters = Masters::all();
+        $this->masters = User::whereHas('role', function($query) {
+            $query->where('name', 'master');
+        })->get();
 
         if (Auth::check()) {
             $user = Auth::user();
@@ -75,7 +77,7 @@ class RecordingFormModal extends Component
             'FIO' => 'required|min:3|max:255',
             'number' => 'required|regex:/^\+7-\d{3}-\d{3}-\d{2}-\d{2}$/',
             'selected_service' => 'required',
-            'selected_master' => 'required',
+            'selected_master' => 'required|exists:users,id',
             'date_time' => 'required|date|after:now',
         ], [
             'FIO.required' => 'Поле ФИО обязательно для заполнения',
@@ -91,9 +93,9 @@ class RecordingFormModal extends Component
             'patronymic' => $fioParts['patronymic'],
             'number' => $this->number,
             'service_id' => $this->selected_service,
-            'master_id' => $this->selected_master,
+            'master_user_id' => $this->selected_master,
             'date_time' => $this->date_time,
-            'status_id' => 1,
+            'is_active' => false,
             'user_id' =>  Auth::id(),
         ];
 

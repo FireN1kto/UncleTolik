@@ -25,7 +25,8 @@ class User extends Authenticatable
         'login',
         'password',
         'avatar',
-        'role_id'
+        'role_id',
+        'biography'
     ];
 
     /**
@@ -50,17 +51,27 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    public function role(){
+
+    public function role()
+    {
         return $this->belongsTo(Role::class, 'role_id');
     }
+
     public function records()
     {
         return $this->hasMany(Records::class, 'user_id');
     }
+
     public function reviews()
     {
         return $this->hasMany(Reviews::class, 'user_id');
     }
+
+    public function works()
+    {
+        return $this->hasMany(Works::class, 'user_id'); // ← добавлено
+    }
+
     public function isAdmin()
     {
         return $this->role && $this->role->name === 'admin';

@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('surname');
             $table->string('name');
             $table->string('patronymic')->nullable();
+            $table->string('avatar')->nullable();
+            $table->text('biography')->nullable();
             $table->foreignId('role_id')->constrained('role')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();

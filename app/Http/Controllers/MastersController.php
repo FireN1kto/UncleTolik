@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Masters;
+use Illuminate\Http\Request;
+use App\Models\User;
 
 class MastersController extends Controller {
+
     public function MastersList() {
-        $Masters = Masters::all();
-        return view('masters', compact('Masters'));
+        $masters = User::whereHas('role', function ($query) {
+            $query->where('name', 'master');
+        })->get();
+
+        return view('masters', compact('masters'));
     }
 }

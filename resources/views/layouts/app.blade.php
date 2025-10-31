@@ -15,7 +15,7 @@
     <header class="main-header">
         <div class="Header wrapper">
             <div class="FirsteLine1">
-                <a href="#">Наши мастера</a>
+                <a href="{{ route('masters') }}">Наши мастера</a>
                 <a href="{{ route('services') }}">Услуги в Tolik-е</a>
                 <a href="#">Работы мастеров</a>
                 <a href="#">Отзывы о нас</a>
@@ -28,11 +28,10 @@
         <div class="Header internal">
             <a href="{{ route('welcome') }}" class="logo">UT</a>
             <div class="nav-links">
-                <a href="#">Наши мастера</a>
+                <a href="{{ route('masters') }}">Наши мастера</a>
                 <a href="{{ route('services') }}">Услуги в Tolik-е</a>
                 <a href="#">Работы мастеров</a>
                 <a href="#">Отзывы о нас</a>
-                <livewire:auth-modal />
             </div>
         </div>
     </header>

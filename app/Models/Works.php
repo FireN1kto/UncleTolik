@@ -8,10 +8,14 @@ class Works extends Model
 {
     protected $table = 'works';
 
-    protected $fillable = ['image_path'];
+    protected $fillable = [
+        'image_path',
+        'user_id',
+    ];
 
-    public function master()
+
+    public function user()
     {
-        return $this->hasOne(Masters::class, 'works_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
