@@ -59,6 +59,7 @@ class AuthModal extends Component
     {
         $this->validate([
             'FIO' => 'required|min:3|max:255',
+            'login' => 'required|min:3|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => ['required', 'min:8'],
         ], [

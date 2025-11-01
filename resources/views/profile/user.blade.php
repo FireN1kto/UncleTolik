@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('title', 'Профиль - UncleTolik')
-
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/PagesCss/styleProfile.css') }}">
 @endsection
@@ -56,7 +54,7 @@
     @else
         <div class="no-sessions">
             <p>У вас пока нет активных записей</p>
-            <p>Запишитесь на услугу, чтобы увидеть её здесь</p>
+            <p>Запись появится здесь после подтверждения администратором</p>
         </div>
     @endif
 

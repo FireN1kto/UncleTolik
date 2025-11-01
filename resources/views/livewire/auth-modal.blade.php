@@ -8,7 +8,7 @@
                 </button>
                 <div class="dropdown-content">
                     @if(Auth::user()->isMaster())
-                        <a href="#" class="dropdown-item">
+                        <a href="{{ route('profile.master') }}" class="dropdown-item">
                             <i class="fas fa-user-tie"></i>
                             Профиль мастера
                         </a>

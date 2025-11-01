@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('title', 'Редактировать профиль - UncleTolik')
-
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/PagesCss/styleEdit.css') }}">
 @endsection

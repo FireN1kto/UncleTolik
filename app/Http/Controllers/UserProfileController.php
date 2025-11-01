@@ -19,13 +19,14 @@ class UserProfileController extends Controller
         // Актуальные записи (будущие или сегодняшние)
         $upcomingRecords = $user->records()
             ->with('service', 'master')
+            ->where('is_active', true)
             ->where('date_time', '>=', $now)
             ->orderBy('date_time', 'asc')
             ->get();
 
-        // Прошедшие записи
         $pastRecords = $user->records()
-            ->with('service', 'master', 'status')
+            ->with('service', 'master')
+            ->where('is_active', true)
             ->where('date_time', '<', $now)
             ->orderBy('date_time', 'desc')
             ->get();

@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('title', 'Наши мастера - UncleTolik')
-
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/PagesCss/styleMasters.css') }}">
 @endsection

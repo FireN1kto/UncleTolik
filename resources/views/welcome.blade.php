@@ -17,7 +17,7 @@
                     </p>
                 </div>
             </div>
-            <livewire:recording-form />
+            <livewire:recording-form-modal />
         </div>
     </div>
 @endsection

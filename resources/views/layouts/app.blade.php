@@ -17,7 +17,7 @@
             <div class="FirsteLine1">
                 <a href="{{ route('masters') }}">Наши мастера</a>
                 <a href="{{ route('services') }}">Услуги в Tolik-е</a>
-                <a href="#">Работы мастеров</a>
+                <a href="{{ route('works') }}">Работы мастеров</a>
                 <a href="#">Отзывы о нас</a>
                 <livewire:auth-modal />
             </div>
@@ -30,7 +30,7 @@
             <div class="nav-links">
                 <a href="{{ route('masters') }}">Наши мастера</a>
                 <a href="{{ route('services') }}">Услуги в Tolik-е</a>
-                <a href="#">Работы мастеров</a>
+                <a href="{{ route('works') }}">Работы мастеров</a>
                 <a href="#">Отзывы о нас</a>
             </div>
         </div>
