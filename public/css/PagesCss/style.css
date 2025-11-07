@@ -506,7 +506,6 @@ form > div > input:not(.Control > input, .Number > input, .DateTime > input) {
     }
 }
 
-/* Анимация появления и исчезновения */
 .alert {
     animation: slideIn 0.3s ease;
 }

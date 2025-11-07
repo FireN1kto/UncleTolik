@@ -12,6 +12,8 @@
                             <i class="fas fa-user-tie"></i>
                             Профиль мастера
                         </a>
+                    @elseif(Auth::user()->isAdmin())
+                        <p>Здравствуйте {{ Auth::user()->name }}!</p>
                     @else
                         <a href="{{ route('profile.user') }}" class="dropdown-item">
                             <i class="fas fa-user"></i>

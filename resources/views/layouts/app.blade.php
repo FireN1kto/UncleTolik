@@ -15,11 +15,19 @@
     <header class="main-header">
         <div class="Header wrapper">
             <div class="FirsteLine1">
-                <a href="{{ route('masters') }}">Наши мастера</a>
-                <a href="{{ route('services') }}">Услуги в Tolik-е</a>
-                <a href="{{ route('works') }}">Работы мастеров</a>
-                <a href="#">Отзывы о нас</a>
-                <livewire:auth-modal />
+                @if(Auth::check() && Auth::user()->isAdmin())
+                    <a href="#">Мастера</a>
+                    <a href="#">Записи</a>
+                    <a href="#">Отзывы</a>
+                    <a href="#">Пользователи</a>
+                    <livewire:auth-modal />
+                @else
+                    <a href="{{ route('masters') }}">Наши мастера</a>
+                    <a href="{{ route('services') }}">Услуги в Tolik-е</a>
+                    <a href="{{ route('works') }}">Работы мастеров</a>
+                    <a href="#">Отзывы о нас</a>
+                    <livewire:auth-modal />
+                @endif
             </div>
         </div>
     </header>
