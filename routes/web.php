@@ -7,6 +7,8 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Middleware\UserMiddleware;
 use App\Http\Middleware\MasterMiddleware;
 use App\Http\Controllers\WorksController;
+use App\Http\Controllers\AdminController;
+use App\Http\Middleware\AdminMiddleware;
 
 Route::get('/', function () { return view('welcome');})->name('welcome');
 Route::get('/services', [ServiceController::class, 'ServicesList'])->name('services');
@@ -29,3 +31,9 @@ Route::post('/profile/master/work', [MastersController::class, 'uploadWork'])->n
     ->middleware([MasterMiddleware::class]);
 Route::delete('/profile/master/work/{work}', [MastersController::class, 'deleteWork'])->name('profile.master.work.delete')
     ->middleware([MasterMiddleware::class]);
+
+Route::get('/admin/users', [AdminController::class, 'users'])->name('admin.users')
+    ->middleware([AdminMiddleware::class]);
+Route::patch('/admin/users/{user}/role', [AdminController::class, 'updateUserRole'])->name('admin.users.role.update')
+    ->middleware([AdminMiddleware::class]);
+

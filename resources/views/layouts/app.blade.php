@@ -19,7 +19,7 @@
                     <a href="#">Мастера</a>
                     <a href="#">Записи</a>
                     <a href="#">Отзывы</a>
-                    <a href="#">Пользователи</a>
+                    <a href="{{ route('admin.users') }}">Пользователи</a>
                     <livewire:auth-modal />
                 @else
                     <a href="{{ route('masters') }}">Наши мастера</a>
