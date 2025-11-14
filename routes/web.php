@@ -36,4 +36,8 @@ Route::get('/admin/users', [AdminController::class, 'users'])->name('admin.users
     ->middleware([AdminMiddleware::class]);
 Route::patch('/admin/users/{user}/role', [AdminController::class, 'updateUserRole'])->name('admin.users.role.update')
     ->middleware([AdminMiddleware::class]);
+Route::get('/admin/records', [AdminController::class, 'records'])->name('admin.records')
+    ->middleware([AdminMiddleware::class]);
+Route::patch('/admin/records/{record}/status', [AdminController::class, 'updateRecordStatus'])->name('admin.records.status.update')
+    ->middleware([AdminMiddleware::class]);
 

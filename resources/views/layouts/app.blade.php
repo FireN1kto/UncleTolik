@@ -17,7 +17,7 @@
             <div class="FirsteLine1">
                 @if(Auth::check() && Auth::user()->isAdmin())
                     <a href="#">Мастера</a>
-                    <a href="#">Записи</a>
+                    <a href="{{ route('admin.records') }}">Записи</a>
                     <a href="#">Отзывы</a>
                     <a href="{{ route('admin.users') }}">Пользователи</a>
                     <livewire:auth-modal />
@@ -34,13 +34,23 @@
 @else
     <header class="internal-header">
         <div class="Header internal">
-            <a href="{{ route('welcome') }}" class="logo">UT</a>
-            <div class="nav-links">
-                <a href="{{ route('masters') }}">Наши мастера</a>
-                <a href="{{ route('services') }}">Услуги в Tolik-е</a>
-                <a href="{{ route('works') }}">Работы мастеров</a>
-                <a href="#">Отзывы о нас</a>
-            </div>
+            @if(Auth::check() && Auth::user()->isAdmin())
+                <a href="{{ route('welcome') }}" class="logo">UT</a>
+                <div class="nav-links">
+                    <a href="#">Мастера</a>
+                    <a href="{{ route('admin.records') }}">Записи</a>
+                    <a href="#">Отзывы</a>
+                    <a href="{{ route('admin.users') }}">Пользователи</a>
+                </div>
+            @else
+                <a href="{{ route('welcome') }}" class="logo">UT</a>
+                <div class="nav-links">
+                    <a href="{{ route('masters') }}">Наши мастера</a>
+                    <a href="{{ route('services') }}">Услуги в Tolik-е</a>
+                    <a href="{{ route('works') }}">Работы мастеров</a>
+                    <a href="#">Отзывы о нас</a>
+                </div>
+            @endif
         </div>
     </header>
 @endif

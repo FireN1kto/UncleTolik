@@ -7,7 +7,7 @@ body {
 
 .work-block {
     width: 100%;
-    margin-top: 6%;
+    margin-top: 3%;
 }
 
 .work-block h3 {
@@ -24,11 +24,6 @@ body {
     justify-content: space-evenly;
     border-top: 2px solid #D1D7E0;
     margin-left: 5%;
-}
-
-.work-block img {
-    padding-top: 3%;
-    width: 20%;
 }
 
 .slider {

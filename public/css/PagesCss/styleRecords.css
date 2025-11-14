@@ -1,0 +1,145 @@
+@import url('../font.css');
+
+.admin-page {
+    background: #2D283E;
+    padding: 40px 20px;
+}
+
+.page-title {
+    text-align: center;
+    color: #9c4dff;
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #4C495D;
+    padding: 15px 20px;
+    border-radius: 30px;
+    margin: 20px 0;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+.section-header:hover {
+    background: #5a576a;
+}
+
+.section-header h3 {
+    color: white;
+    font-family: "Roboto-Regular", sans-serif;
+    font-size: 20px;
+    margin: 0;
+}
+
+.section-header .icon {
+    background: #9c4dff;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.records-list {
+    background: rgba(40, 35, 55, 0.7);
+    border-radius: 16px;
+    padding: 20px;
+    margin: 20px 0;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.record-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.record-info {
+    flex: 1;
+    line-height: 1.5;
+}
+
+.record-info strong {
+    color: white;
+    font-weight: 600;
+}
+
+.record-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.custom-checkbox {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #9c4dff;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.custom-checkbox.checked {
+    background: #9c4dff;
+}
+
+.custom-checkbox::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 6px;
+    height: 10px;
+    border: 2px solid white;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+    opacity: 0;
+}
+
+.custom-checkbox.checked::after {
+    opacity: 1;
+}
+
+.btn-publish {
+    background: #9c4dff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-publish:hover {
+    background: #8a3de0;
+}
+
+.empty-message {
+    text-align: center;
+    color: #aaa;
+    padding: 40px 0;
+    font-style: italic;
+}

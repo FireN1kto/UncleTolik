@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Role;
+use \App\Models\Records;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller {
@@ -30,5 +31,31 @@ class AdminController extends Controller {
         $user->update(['role_id' => $request->role_id]);
 
         return back()->with('success', 'Роль пользователя обновлена');
+    }
+
+    public function records()
+    {
+        $confirmedRecords = Records::with(['user', 'service', 'master'])
+            ->where('is_active', true)
+            ->orderBy('date_time', 'desc')
+            ->get();
+
+        $unconfirmedRecords = Records::with(['user', 'service', 'master'])
+            ->where('is_active', false)
+            ->orderBy('date_time', 'desc')
+            ->get();
+
+        return view('admin.records', compact('confirmedRecords', 'unconfirmedRecords'));
+    }
+
+    public function updateRecordStatus(Request $request, Records $record)
+    {
+        $request->validate([
+            'is_active' => 'required|boolean',
+        ]);
+
+        $record->update(['is_active' => $request->is_active]);
+
+        return back()->with('success', 'Статус записи обновлён');
     }
 }
