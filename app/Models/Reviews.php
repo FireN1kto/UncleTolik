@@ -12,6 +12,7 @@ class Reviews extends Model
         'name',
         'patronymic',
         'description',
+        'rating',
         'user_id',
         'is_active'
     ];

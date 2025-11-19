@@ -10,8 +10,6 @@
 
         <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data" class="editForm">
             @csrf
-
-            <!-- Аватар -->
             <div class="form-group">
                 <label>Аватар</label>
                 <input type="file" name="avatar" class="form-control" accept="image/*">
@@ -22,7 +20,6 @@
                 @endif
             </div>
 
-            <!-- ФИО -->
             <div class="form-group">
                 <label>Фамилия</label>
                 <input type="text" name="surname" class="form-control" value="{{ old('surname', $user->surname) }}" required>
@@ -36,13 +33,11 @@
                 <input type="text" name="patronymic" class="form-control" value="{{ old('patronymic', $user->patronymic) }}" required>
             </div>
 
-            <!-- Контакты -->
             <div class="form-group">
                 <label>Email</label>
                 <input type="email" name="email" class="form-control" value="{{ old('email', $user->email) }}" required>
             </div>
 
-            <!-- Кнопки -->
             <div style="text-align: center; margin-top: 30px;">
                 <button type="submit" class="btn btn-primary">Сохранить</button>
                 <a href="{{ route('profile.user') }}" class="btn btn-secondary">Отмена</a>

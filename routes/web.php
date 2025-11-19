@@ -9,6 +9,7 @@ use App\Http\Middleware\MasterMiddleware;
 use App\Http\Controllers\WorksController;
 use App\Http\Controllers\AdminController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\ReviewController;
 
 Route::get('/', function () { return view('welcome');})->name('welcome');
 Route::get('/services', [ServiceController::class, 'ServicesList'])->name('services');
@@ -23,6 +24,10 @@ Route::get('/profile/user', [UserProfileController::class, 'index'])->name('prof
 Route::get('/profile/edit', [UserProfileController::class, 'edit'])->name('profile.edit')
     ->middleware([UserMiddleware::class]);
 Route::post('/profile/update', [UserProfileController::class, 'update'])->name('profile.update')
+    ->middleware([UserMiddleware::class]);
+Route::get('/review/{record}/create.blade.php', [ReviewController::class, 'create'])->name('review.create')
+    ->middleware([UserMiddleware::class]);
+Route::post('/review/{record}', [ReviewController::class, 'store'])->name('review.store')
     ->middleware([UserMiddleware::class]);
 
 Route::get('/profile/master', [MastersController::class, 'index'])->name('profile.master')

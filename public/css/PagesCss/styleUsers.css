@@ -1,0 +1,61 @@
+@import url('../font.css');
+@import url('../header-footer-admin.css');
+
+body{
+    background: #2D283E;
+}
+
+.users-table {
+    background: rgba(30, 25, 45, 0.8);
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 20px auto;
+    max-width: 1000px;
+}
+.users-table table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+}
+.users-table th,
+.users-table td {
+    padding: 14px 20px;
+    text-align: left;
+    border-bottom: 1px solid #444;
+}
+.users-table th {
+    background: #2a253a;
+    font-weight: bold;
+    color: #9c4dff;
+}
+.role-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.role-user { background: #444; color: #aaa; }
+.role-master { background: #2e7d32; color: white; }
+.role-admin { background: #d32f2f; color: white; }
+
+.role-select {
+    background: #2a253a;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 15px;
+}
+
+.update-btn {
+    background: #9c4dff;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+.update-btn:hover {
+    background: #8a3de0;
+}

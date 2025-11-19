@@ -23,7 +23,17 @@ class AdminController extends Controller {
             'role_id' => 'required|exists:role,id',
         ]);
 
-        // Запретить менять роль администратору (себе и другим админам)
+        $role = Role::findOrFail($request->role_id);
+        if ($role->name === 'admin') {
+            $existingAdmin = User::whereHas('role', function ($q) {
+                $q->where('name', 'admin');
+            })->exists();
+
+            if ($existingAdmin) {
+                return back()->withErrors(['error' => 'Администратор уже существует. Нельзя создать второго.']);
+            }
+        }
+
         if ($user->isAdmin() && $request->role_id != $user->role_id) {
             return back()->withErrors(['error' => 'Нельзя изменить роль администратора']);
         }

@@ -22,8 +22,6 @@
             </div>
         </div>
     </div>
-
-    {{-- Актуальные записи --}}
     <div class="section-title">Мои записи</div>
 
     @if($upcomingRecords->count() > 0)
@@ -82,12 +80,10 @@
                             <strong>{{ $record->number }}</strong>
                         </div>
                     </div>
-
-                    {{-- Кнопка "Написать отзыв" --}}
                     <div class="session-actions">
-                        <button class="review-btn" data-record-id="{{ $record->id }}">
+                        <a href="{{ route('review.create', $record) }}" class="review-btn">
                             Написать отзыв
-                        </button>
+                        </a>
                     </div>
                 </div>
             @endforeach

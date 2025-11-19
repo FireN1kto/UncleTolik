@@ -1,4 +1,9 @@
 @import url('../font.css');
+@import url('../header-footer-admin.css');
+
+body {
+    background: #2D283E;
+}
 
 .admin-page {
     background: #2D283E;
