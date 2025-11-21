@@ -17,8 +17,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('patronymic')->nullable();
             $table->text('description');
-            $table->integer('rating')->default(5)->after('description');
+            $table->integer('rating')->default(5);
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('record_id')->references('id')->on('records')->onDelete('cascade');
             $table->boolean('is_active')->default(false);
             $table->timestamps();
         });

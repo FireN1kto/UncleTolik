@@ -14,6 +14,7 @@ class Reviews extends Model
         'description',
         'rating',
         'user_id',
+        'record_id',
         'is_active'
     ];
 
@@ -24,6 +25,11 @@ class Reviews extends Model
     protected $casts = [
         'is_active' => 'boolean',
     ];
+
+    public function record()
+    {
+        return $this->belongsTo(Records::class, 'record_id');
+    }
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id');

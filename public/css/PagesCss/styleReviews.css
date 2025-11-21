@@ -1,0 +1,81 @@
+@import url('../font.css');
+@import url('../header-footer-all.css');
+
+main {
+    margin-top: 1%;
+}
+
+.page-title {
+    font-family: "Roboto-Bold", sans-serif;
+    color: #8340A9;
+    font-size: 55pt;
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+.reviews-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:0 auto;
+    width: 100%;
+}
+
+.reviews {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 5%;
+}
+
+.review-card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 22%;
+    height: 650px;
+    background-color: #4C495D;
+    margin-top: 2%;
+    border-radius: 60px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: -10px -10px 10px #9747FF, 10px 10px 10px #9747FF;
+}
+
+.review-header > img {
+    width: 40%;
+    border-radius: 60px;
+    margin: 5% 30% 1%;
+}
+
+.review-name {
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 22pt;
+    color: #D1D7E0;
+    margin-bottom: 1%;
+}
+
+.ratings {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 22px;
+    margin-bottom: 5%;
+}
+
+.review-text > p {
+    display: flex;
+    justify-content: center;
+    font-family: "Roboto-Regular", sans-serif;
+    font-size: 15pt;
+    color: #D1D7E0;
+    line-height: 1.6;
+    margin: 0 5%;
+    word-break: break-word;
+}

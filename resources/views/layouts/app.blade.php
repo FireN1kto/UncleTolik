@@ -11,21 +11,20 @@
 </head>
 <body>
 @if(Request::is('/'))
-    <!-- Хедер для главной страницы -->
     <header class="main-header">
         <div class="Header wrapper">
             <div class="FirsteLine1">
                 @if(Auth::check() && Auth::user()->isAdmin())
                     <a href="#">Мастера</a>
                     <a href="{{ route('admin.records') }}">Записи</a>
-                    <a href="#">Отзывы</a>
+                    <a href="{{ route('admin.reviews') }}">Отзывы</a>
                     <a href="{{ route('admin.users') }}">Пользователи</a>
                     <livewire:auth-modal />
                 @else
                     <a href="{{ route('masters') }}">Наши мастера</a>
                     <a href="{{ route('services') }}">Услуги в Tolik-е</a>
                     <a href="{{ route('works') }}">Работы мастеров</a>
-                    <a href="#">Отзывы о нас</a>
+                    <a href="{{ route('reviews') }}">Отзывы о нас</a>
                     <livewire:auth-modal />
                 @endif
             </div>
@@ -39,7 +38,7 @@
                 <div class="nav-links">
                     <a href="#">Мастера</a>
                     <a href="{{ route('admin.records') }}">Записи</a>
-                    <a href="#">Отзывы</a>
+                    <a href="{{ route('admin.reviews') }}">Отзывы</a>
                     <a href="{{ route('admin.users') }}">Пользователи</a>
                 </div>
             @else
@@ -48,7 +47,7 @@
                     <a href="{{ route('masters') }}">Наши мастера</a>
                     <a href="{{ route('services') }}">Услуги в Tolik-е</a>
                     <a href="{{ route('works') }}">Работы мастеров</a>
-                    <a href="#">Отзывы о нас</a>
+                    <a href="{{ route('reviews') }}">Отзывы о нас</a>
                 </div>
             @endif
         </div>

@@ -81,9 +81,15 @@
                         </div>
                     </div>
                     <div class="session-actions">
-                        <a href="{{ route('review.create', $record) }}" class="review-btn">
-                            Написать отзыв
-                        </a>
+                        @if($record->review)
+                            <span class="review-status">
+                                Отзыв отправлен и ожидает публикации
+                            </span>
+                        @else
+                            <a href="{{ route('review.create', $record) }}" class="review-btn">
+                                Написать отзыв
+                            </a>
+                        @endif
                     </div>
                 </div>
             @endforeach

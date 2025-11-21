@@ -18,6 +18,7 @@ Route::get('/services/haircuts', [ServiceController::class, 'showHaircuts'])->na
 Route::get('/services/facial-treatment', [ServiceController::class, 'showFacialTreatment'])->name('services.facial-treatment');
 Route::get('/masters', [MastersController::class, 'MastersList'])->name('masters');
 Route::get('/works', [WorksController::class, 'index'])->name('works');
+Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews');
 
 Route::get('/profile/user', [UserProfileController::class, 'index'])->name('profile.user')
     ->middleware([UserMiddleware::class]);
@@ -44,5 +45,9 @@ Route::patch('/admin/users/{user}/role', [AdminController::class, 'updateUserRol
 Route::get('/admin/records', [AdminController::class, 'records'])->name('admin.records')
     ->middleware([AdminMiddleware::class]);
 Route::patch('/admin/records/{record}/status', [AdminController::class, 'updateRecordStatus'])->name('admin.records.status.update')
+    ->middleware([AdminMiddleware::class]);
+Route::get('/admin/reviews', [AdminController::class, 'reviews'])->name('admin.reviews')
+    ->middleware([AdminMiddleware::class]);
+Route::patch('/admin/reviews/{review}/publish', [AdminController::class, 'publishReview'])->name('admin.reviews.publish')
     ->middleware([AdminMiddleware::class]);
 

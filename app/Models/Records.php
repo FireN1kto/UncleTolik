@@ -40,4 +40,9 @@ class Records extends Model
         return $this->belongsTo(User::class, 'master_user_id');
     }
 
+    public function review()
+    {
+        return $this->hasOne(Reviews::class, 'record_id');
+    }
+
 }

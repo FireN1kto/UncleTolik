@@ -1,0 +1,94 @@
+@import url('../font.css');
+@import url('../header-footer-admin.css');
+
+.review-form {
+    max-width: 700px;
+    margin: 5% 30%;
+    background: rgba(40, 35, 55, 0.8);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.form-group {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #e0e0ff;
+    font-weight: 500;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #2a253a;
+    color: white;
+    font-size: 16px;
+}
+
+textarea {
+    width: 60%;
+    height: 50px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #2a253a;
+    color: white;
+    font-size: 16px;
+}
+
+.stars {
+    color: #ffc107;
+    font-size: 28px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.stars input {
+    display: none;
+}
+
+.stars label {
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.stars label:hover,
+.stars label:hover ~ label {
+    color: #ffc107;
+}
+
+.btn {
+    padding: 10px 24px;
+    background: #9c4dff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover { background: #8a3de0; }
+
+.star-rating {
+    display: flex;
+    gap: 6px;
+    margin: 10px 0;
+}
+
+.star {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.star:hover {
+    transform: scale(1.1);
+}

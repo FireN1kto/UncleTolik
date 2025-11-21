@@ -68,4 +68,20 @@ class AdminController extends Controller {
 
         return back()->with('success', 'Статус записи обновлён');
     }
+
+    public function reviews()
+    {
+        $unpublished = \App\Models\Reviews::with(['user', 'record.service'])
+            ->where('is_active', false)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('admin.reviews', compact( 'unpublished'));
+    }
+
+    public function publishReview(Request $request, \App\Models\Reviews $review)
+    {
+        $review->update(['is_active' => true]);
+        return back()->with('success', 'Отзыв опубликован');
+    }
 }

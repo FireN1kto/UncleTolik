@@ -1,0 +1,108 @@
+@import url('../font.css');
+@import url('../header-footer-admin.css');
+
+.reviews-page {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 5% 20%;
+}
+
+.reviews-page > h1 {
+    text-align: center;
+    color: #9c4dff;
+    margin-bottom: 30px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #4C495D;
+    padding: 15px 20px;
+    border-radius: 30px;
+    margin: 20px 0;
+}
+
+.section-header h3 {
+    color: white;
+    font-family: "Roboto-Regular", sans-serif;
+    font-size: 20px;
+}
+
+.review-list {
+    background: rgba(40, 35, 55, 0.7);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.review-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.review-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: flex-start;
+}
+
+.review-client > img {
+    border-radius: 60px;
+    width: 30%;
+    margin-right: 5%;
+}
+
+.review-client {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #D1D7E0;
+}
+
+.review-rating {
+    display: flex;
+    margin: 1% 0;
+}
+
+.review-service {
+    color: #9c4dff;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.review-text {
+    color: #e0e0e0;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.review-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.status-unpublished {
+    color: #ff9800;
+    font-weight: bold;
+}
+
+.empty-message {
+    text-align: center;
+    color: #aaa;
+    padding: 30px 0;
+    font-style: italic;
+}

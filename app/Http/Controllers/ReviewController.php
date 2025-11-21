@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
+    public function index()
+    {
+        $reviews = Reviews::with('user')
+            ->where('is_active', true)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('reviews', compact('reviews'));
+    }
     public function create(Records $record)
     {
         if ($record->user_id !== Auth::id() || $record->date_time->isFuture()) {
